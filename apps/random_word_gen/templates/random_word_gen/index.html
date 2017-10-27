@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Word Generator</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'random_word_gen/stylesheet.css'%}" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <p>Random Word (Attempt No {{request.session.count}})</p>
+    <div class="string">
+    <h1>{{request.session.unique_id}}</h1>
+    </div>
+        <form action="/generate" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Generate">
+        </form>
+    
+</body>
+</html>
